@@ -1,0 +1,27 @@
+<div class="relative" [@routeAnimations]="o.isActivated && o.activatedRouteData">
+    <router-outlet #o="outlet"></router-outlet>
+</div>
+
+<section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
+        <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+            <h1 class="title-font font-medium text-3xl text-gray-900">Registriere und messe dich mit deinen Mitarbeitern</h1>
+            <p class="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+            <img src="/assets/images/game_world.svg" alt="">
+        </div>
+        <div class="lg:w-2/6 md:w-1/2 bg-gray-200 border-solid border border-gray-300 shadow-lg rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+            <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Anmelden</h2>
+            <mat-form-field appearance="outline">
+                <mat-label>Benutzername</mat-label>
+                <input matInput>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Passwort</mat-label>
+                <input matInput type="{{hide ? 'password':'text'}}">
+                <mat-icon matSuffix class="cursor-pointer" onclick="event.stopPropagation()" (click)="hide = !hide">{{hide ? 'visibility_off':'visibility'}}</mat-icon>
+            </mat-form-field>
+            <button class="py-2 px-8" mat-raised-button color="primary">Absenden</button>
+            <p class="text-xs text-gray-500 mt-3">Du hast noch keinen Account? <a class="text-main">Jetzt registrieren</a></p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,50 @@
+<div class="component shadow-lg border-solid border-bottom border-gray-300">
+    <div class="game-container">
+        <canvas class="game" id="game" width="400" height="400"></canvas>
+        <p class="game-score">Score: {{score}}</p>
+
+        <div class="game-menu" *ngIf="!ingame">
+            <!-- Main Menu Screen -->
+            <div id="menu" *ngIf="!gameover && !settings">
+                <h2>Snake</h2>
+
+                <a (click)="newGame()">new game</a>
+                <a (click)="settings=!settings">settings</a>
+            </div>
+            
+            <!-- Game Over Screen -->
+            <div id="gameover" *ngIf="gameover && !settings">
+                <h2>Game Over</h2>
+                <p>press <span>space</span> to begin again</p>
+                <a (click)="newGame()">new game</a>
+                <a (click)="settings=!settings">settings</a>
+            </div>
+
+            <!-- Settings Screen -->
+            <div id="settings" *ngIf="settings">
+                <h2>Settings</h2>
+                
+                <p>Speed:
+                    <input [(ngModel)]="speed" [value]="45" id="slow" type="radio" name="speed"/>
+                    <label for="slow">Slow</label>
+
+                    <input [(ngModel)]="speed" [value]="25" id="normal" type="radio" name="speed"/>
+                    <label for="normal">Normal</label>
+
+                    <input [(ngModel)]="speed" [value]="0" id="fast" type="radio" name="speed"/>
+                    <label for="fast">Fast</label>
+                </p>
+                
+                <p>Wall:
+                    <input [(ngModel)]="wall" [value]="true" id="wallon" type="radio" name="wall"/>
+                    <label for="wallon">On</label>
+
+                    <input [(ngModel)]="wall" [value]="false" id="walloff" type="radio" name="wall"/>
+                    <label for="walloff">Off</label>
+                </p>
+
+                <a (click)="settings=!settings">go back</a>
+            </div>
+        </div>
+    </div>
+</div>

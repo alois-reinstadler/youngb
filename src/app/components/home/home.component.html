@@ -1,0 +1,91 @@
+<div class="landing-container h-screen w-full flex items-center justify-center border-bottom border-solid border-gray-800 shadow-lg">
+    <div class="landing-background h-screen w-full relative overflow-hidden">
+        <div class="landing-background-image attach-fixed active"></div>
+        <div class="landing-background-image absolute top-0 attach-fixed"></div>
+        <div class="landing-background-image absolute top-0 attach-fixed"></div>
+        <div class="landing-background-image absolute top-0 attach-fixed"></div>
+        <div class="landing-background-gradient absolute top-0 attach-fixed"></div>
+    </div>
+    <div class="absolute container md:max-w-card mx-auto" [ngClass]="routeAnimationsElements">
+        <div class="flex flex-col-reverse md:flex-row items-center bg-white rounded-lg p-8 md:p-16 mx-6 shadow-mat_lg" [ngStyle]="{'margin-top.px': margin}">
+            <div class="w-full md:w-1/2 md:pr-8">
+                <h6 class="uppercase text-base text-blue-900 font-bold leading-none tracking-wide mb-2" style="line-height: 1;">Übungsfirma</h6>
+                <h2 class="uppercase text-2xl md:text-4xl text-main text-secondary tracking-widest mb-4" style="line-height: 1;">young.b</h2>
+                <p class="text-gray-700 body-font leading-relaxed mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing. Vestibulum rutrum metus at enim congue scelerisque. Sed suscipit metu non iaculis semper consectetur adipiscing elit..</p>
+                <button mat-raised-button color="primary" class="rounded-full py-1 px-4 shadow-mat_md hover:shadow-mat_lg" (click)="scroll()" style="transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);">Erfahre mehr</button>
+            </div>
+            <div class="w-full mb-16 md:mb-0 md:w-1/2 md:pl-8">
+                <img src="/assets/images/home.svg" alt="Rabatte" class="mx-auto mt-6 md:mt-0" style="transform: scale(1.3);">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- idk carousel -->
+<!-- <section class="content w-full relative">
+    <div class="relative overflow-hidden" style="height: 50vh;">
+        <div class="attach-fixed w-full h-full absolute top-0" style="background-image: url('https://images.unsplash.com/photo-1422190441165-ec2956dc9ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');"></div>
+
+        <div class="attach-fixed w-full h-full absolute top-0" style="background-image: url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ&auto=format&fit=crop&w=1600&q=80');"></div>
+
+        <div class="attach-fixed w-full h-full absolute top-0" style="background-image: url('https://images.unsplash.com/photo-1519327232521-1ea2c736d34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');"></div>
+        
+        <div class="">
+            <h2></h2>
+        </div>
+    </div>
+</section> -->
+
+
+<section class="content py-12 border-0">
+    <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="w-full md:w-1/2 p-6 md:pr-16">
+            <h2 class="text-2xl text-base">Prozente, Prozente, Prozente</h2>
+            <p class="text-gray-700 body-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique temporibus natus sequi, eum ea quaerat laudantium obcaecati dolor dolorem delectus eveniet magni, at blanditiis hic iusto saepe deleniti veritatis ad!</p>
+        </div>
+        <div class="w-full md:w-1/2 p-6 md:pl-16">
+            <img src="/assets/images/discount.svg" alt="Rabatte" class="mx-auto max-w-full lg:max-w-contentImg">
+        </div>
+    </div>
+</section>
+
+<section class="content py-12">
+    <div class="container mx-auto flex flex-col md:flex-row items-center md:flex-row-reverse">
+        <div class="w-full md:w-1/2 p-6 md:pl-16">
+            <h2 class="text-2xl text-base">Prozente, Prozente, Prozente</h2>
+            <p class="text-gray-700 body-font">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique temporibus natus sequi, eum ea quaerat laudantium obcaecati dolor dolorem delectus eveniet magni, at blanditiis hic iusto saepe deleniti veritatis ad!</p>
+        </div>
+        <div class="w-full md:w-1/2 p-6 md:pr-16">
+            <img src="/assets/images/discount.svg" alt="Rabatte" class="mx-auto max-w-full lg:max-w-contentImg">
+        </div>
+    </div>
+</section>
+
+<section class="text-gray-700 body-font content">
+        <div class="container px-5 py-24 mx-auto flex flex-col">
+            <div class="lg:w-4/6 mx-auto">
+                <div class="rounded-lg h-64 overflow-hidden">
+                    <img alt="Team der young.b" class="object-cover object-center h-full w-full" src="/assets/images/team.jpg">
+                </div>
+                <div class="flex flex-col sm:flex-row mt-10">
+                    <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                        <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400 overflow-hidden shadow-mat_md">
+                            <img src="/assets/images/gf.jpg" alt="Geschäftsführer">
+                            <!-- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10" viewBox="0 0 24 24">
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg> -->
+                        </div>
+                            <div class="flex flex-col items-center text-center justify-center">
+                            <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Mag. Edwin Dangl</h2>
+                            <div class="w-12 h-1 bg-main rounded mt-2 mb-4"></div>
+                            <p class="text-base text-gray-600">Geschäftsführer und Mitbegründer der young.b.</p>
+                        </div>
+                    </div>
+                    <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-300 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                        <p class="leading-relaxed text-lg mb-4">Meggings portland fingerstache lyft, post-ironic fixie man bun banh mi umami everyday carry hexagon locavore direct trade art party. Locavore small batch listicle gastropub farm-to-table lumbersexual salvia messenger bag. Coloring book flannel truffaut craft beer drinking vinegar sartorial, disrupt fashion axe normcore meh butcher. Portland 90's scenester vexillologist forage post-ironic asymmetrical, chartreuse disrupt butcher paleo intelligentsia pabst before they sold out four loko. 3 wolf moon brooklyn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

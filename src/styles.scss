@@ -1,1 +1,62 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import './styles/normalize.scss';
+
+html, body {
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    line-height: 1.7;
+    scroll-behavior: smooth;
+}
+
+section.content {
+    width: 100%;
+    border-top: 1px solid #b3b3b3;
+
+    &:nth-of-type(even) {
+        background-color: #f7f7f7;
+    }
+}
+
+.landing-background {
+    &-gradient {
+        width: 100%;
+        height: 100vh;
+
+        opacity: 0.9;
+        background: linear-gradient(to right top, #fe9901, #ff8e21, #ff8432, #ff7b40, #ff724c, #fe6b56, #fc6560, #f96069, #f25c72, #ea597b, #e15883, #d6578a);
+    }
+}
+
+/*
+    MISC.
+*/
+
+//game mode
+body.gaming, body.admin {
+    header {
+        transform: translateY(-110%);
+    }
+}
+
+body.admin {
+    footer {
+        display: none;
+    }
+}
+
+//background image fix
+.attach-fixed {
+    background-attachment: fixed;
+}
+
+@supports (-ms-ime-align: auto) {
+    .attach-fixed {
+        background-attachment: scroll;
+    }
+}

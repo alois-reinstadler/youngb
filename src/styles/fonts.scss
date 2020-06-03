@@ -1,0 +1,23 @@
+@import './mixins.scss';
+
+@include fontface('Klarna Headline', 'Klarna/KlarnaHeadline-Bold');
+@include fontface('Klarna Text', 'Klarna/KlarnaText-Regular', 400, normal);
+@include fontface('Klarna Text', 'Klarna/KlarnaText-Italic', 400, italic);
+@include fontface('Klarna Text', 'Klarna/KlarnaText-Medium', 500);
+@include fontface('Klarna Text', 'Klarna/KlarnaText-MediumItalic', 500, italic);
+@include fontface('Klarna Text', 'Klarna/KlarnaText-Bold', 700);
+@include fontface('Klarna Text', 'Klarna/KlarnaText-BoldItalic', 700, italic);
+@include fontface('Klarna Mono', 'Klarna/KlarnaTextMono-Regular');
+@include fontface('Klarna Mono', 'Klarna/KlarnaTextMono-Medium', 500);
+
+body {
+    font-family: 'Klarna Regular', 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
+}
+
+input {
+    font-family: 'Klarna Regular', 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Klarna Headline', 'Klarna Regular', 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;
+}

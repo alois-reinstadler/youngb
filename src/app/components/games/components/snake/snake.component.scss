@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css?family=VT323");
+
+.game {
+    max-width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+
+    &-container {
+        width: 100%;
+        height: 100vh;
+    
+        overflow: hidden;
+        position: relative;
+
+        color: #fff;
+        background-color: #000;
+
+        font-family: "VT323";
+        line-height: 1.2;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-score {
+        font-size: 1.25rem;
+
+        top: 1rem;
+        left: 1rem;
+        position: absolute;
+
+        cursor: default;
+        user-select: none;
+        pointer-events: none;
+    }
+
+    &-menu {
+        font-size: 1.5rem;
+        position: absolute;
+        text-align: center;
+
+        h2 {
+            font-size: 5rem;
+            letter-spacing: 1px;
+
+            cursor: default;
+            user-select: none;
+        }
+
+        a {
+            display: block;
+            cursor: pointer;
+
+            &:hover::before {
+                display: inline-block;
+            }
+
+            &::before {
+                content: '>';
+                margin-right: 2px;
+                display: none;
+            }
+        }
+
+        #settings {
+            input {
+                display: none;
+
+                &:checked + label {
+                    color: #000000;
+                    background-color: #FFFFFF;
+                }
+            }
+
+            label {
+                cursor: pointer;
+                &:not(:last-of-type) {
+                    margin-right: 1rem;
+                }
+            }
+
+            a {
+                margin-top: 1rem;
+            }
+        }
+
+        #gameover {
+            p {
+                margin-bottom: 1rem;
+
+                span {
+                    color: #000000;
+                    background-color: #FFFFFF;
+                    animation: blink .75s infinite;
+                }
+            }
+        }
+
+        @keyframes blink {
+            0%, 49% {
+                color: #000000;
+                background-color: #FFFFFF;
+            }
+
+            50%, 100% {
+                color: #FFFFFF;
+                background-color: #000000;
+            }
+        }
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "VT323";
+}

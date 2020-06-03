@@ -1,0 +1,12 @@
+a {
+    transition: color 200ms;
+}
+
+svg {
+    transition: fill 200ms
+}
+
+.fadeout {
+    transition: opacity 200ms;
+    opacity: 0;
+}

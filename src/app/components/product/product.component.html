@@ -1,0 +1,87 @@
+<section class="text-gray-700 body-font overflow-hidden">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <div class="lg:w-1/2 w-full lg:h-auto h-64 rounded overflow-hidden" style="position: relative;">
+                <div class="w-full h-full flex justify-center items-center absolute-center z-1 opacity-100" #preloader>
+                    <div class="preloader-wrapper big active">
+                        <div class="spinner-layer">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img alt="ecommerce" class="w-full h-full object-cover object-center" [src]="imageUrl | async" #image (load)="imageLoaded(preloader)">
+            </div>
+            <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                <h2 class="text-sm title-font text-gray-500 tracking-widest uppercase">young.b</h2>
+                <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">{{product.name}}</h1>
+                <div class="flex mb-4">
+                    <span class="flex items-center">
+                        <mat-icon *ngFor="let item of stars(5); let i = index" class="w-4 h-4 text-main select-none" [ngClass]="{'ml-1': i > 0}">
+                            {{ ((i + 1) < product.stars) ? 'star':( i <= (product.stars - 0.4) ? 'star_half':'star_outline' ) }}
+                        </mat-icon>
+                        <span class="text-gray-600 ml-3">4 Reviews</span>
+                    </span>
+                    <span class="flex ml-3 pl-3 py-2 border-l-2 border-gray-200">
+                        <a class="text-gray-500 hover:text-gray-800" target="_blank" [attr.href]="getShareableLink('facebook')">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-1 text-gray-500 hover:text-gray-800" target="_blank" [attr.href]="getShareableLink('twitter')">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-1 text-gray-500 hover:text-gray-800" target="_blank" [attr.href]="getShareableLink('whatsapp')">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-1 text-gray-500 hover:text-gray-800" matTooltip="Kopiere Produktlink" onclick="copyLink()">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
+                                <path d="M13.723 18.654l-3.61 3.609c-2.316 2.315-6.063 2.315-8.378 0-1.12-1.118-1.735-2.606-1.735-4.188 0-1.582.615-3.07 1.734-4.189l4.866-4.865c2.355-2.355 6.114-2.262 8.377 0 .453.453.81.973 1.089 1.527l-1.593 1.592c-.18-.613-.5-1.189-.964-1.652-1.448-1.448-3.93-1.51-5.439-.001l-.001.002-4.867 4.865c-1.5 1.499-1.5 3.941 0 5.44 1.517 1.517 3.958 1.488 5.442 0l2.425-2.424c.993.284 1.791.335 2.654.284zm.161-16.918l-3.574 3.576c.847-.05 1.655 0 2.653.283l2.393-2.389c1.498-1.502 3.94-1.5 5.44-.001 1.517 1.518 1.486 3.959 0 5.442l-4.831 4.831-.003.002c-1.438 1.437-3.886 1.552-5.439-.002-.473-.474-.785-1.042-.956-1.643l-.084.068-1.517 1.515c.28.556.635 1.075 1.088 1.528 2.245 2.245 6.004 2.374 8.378 0l4.832-4.831c2.314-2.316 2.316-6.062-.001-8.377-2.317-2.321-6.067-2.313-8.379-.002z"/>
+                            </svg>
+                        </a>
+                    </span>
+                </div>
+                <p class="leading-relaxed">{{product.description}}</p>
+                <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                    <div class="flex">
+                        <span class="mr-3">Color</span>
+                        <button class="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
+                        <button class="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
+                        <button class="border-2 border-gray-300 ml-1 bg-main rounded-full w-6 h-6 focus:outline-none"></button>
+                    </div>
+                    <div class="flex ml-6 items-center">
+                        <span class="mr-3">Size</span>
+                        <div class="relative">
+                            <select class="rounded border appearance-none border-gray-400 py-2 focus:outline-none focus:border-main text-base pl-3 pr-10">
+                                <option>SM</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                            </select>
+                            <span class="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4" viewBox="0 0 24 24">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <span class="title-font font-medium text-2xl text-gray-900">{{product.price}} EUR</span>
+                    <button class="flex ml-auto py-2 px-6" mat-raised-button color="primary" style="margin-left: auto;">In den Warenkorb</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

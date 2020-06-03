@@ -1,0 +1,61 @@
+.landing-container video {
+
+    min-width: 100%;
+    min-height: 100%;
+
+    max-width: none;
+    max-height: none;
+
+    width: auto;
+    height: auto;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    z-index: -1;
+}
+
+.landing-container h1 {
+    letter-spacing: 0.02em;
+
+    text-shadow:0 0 150px #0fff;
+    @supports(text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0fff, 0 0 80px #0fff, 0 0 90px #0fff, 0 0 100px #0fff, 0 0 150px #0fff) {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0fff, 0 0 80px #0fff, 0 0 90px #0fff, 0 0 100px #0fff, 0 0 150px #0fff
+    }
+    
+    user-select: none;
+    white-space: nowrap;
+
+    filter: blur(0.007em);
+    animation: shake 2.5s linear forwards infinite;
+}
+
+@keyframes shake {
+    5%, 15%, 25%, 35%, 55%, 65%, 75%, 95% {
+        filter: blur(0.018em);
+        transform: translateY(0.018em) rotate(0deg);
+    }
+
+    10%, 30%, 40%, 50%, 70%, 80%, 90% {
+        filter: blur(0.01em);
+        transform: translateY(-0.018em) rotate(0deg);
+    }
+
+    20%, 60% {
+        filter: blur(0.03em);
+        transform: translate(-0.018em, 0.018em) rotate(0deg);
+    }
+
+    45%, 85% {
+        filter: blur(0.03em);
+        transform: translate(0.018em, -0.018em) rotate(0deg);
+    }
+
+    0%, 100% {
+        filter: blur(0.007em);
+        transform: translate(0) rotate(-0.5deg);
+    }
+}

@@ -1,0 +1,225 @@
+@import '@angular/material/_theming.scss';
+@import './fonts.scss';
+
+@include mat-core();
+
+$palette-primary: (
+    50 : #fff3e1,
+    100 : #ffe0b3,
+    200 : #ffcc80,
+    300 : #feb84d,
+    400 : #fea827,
+    500 : #fe9901,
+    600 : #fe9101,
+    700 : #fe8601,
+    800 : #fe7c01,
+    900 : #fd6b00,
+    A100 : #ffffff,
+    A200 : #fff6f1,
+    A400 : #ffd5be,
+    A700 : #ffc5a4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$palette-accent: (
+    50 : #fbebf0,
+    100 : #f6cdda,
+    200 : #f0acc1,
+    300 : #ea8aa8,
+    400 : #e67196,
+    500 : #e15883,
+    600 : #dd507b,
+    700 : #d94770,
+    800 : #d53d66,
+    900 : #cd2d53,
+    A100 : #ffffff,
+    A200 : #ffdbe3,
+    A400 : #ffa8bb,
+    A700 : #ff8fa7,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$uefa-primary: mat-palette($palette-primary);
+$uefa-accent: mat-palette($palette-accent);
+
+@mixin theming($theme, $typography: null) {
+    @include angular-material-theme($theme);
+    @if $typography {
+        @include angular-material-typography($typography);
+    }
+}
+
+$primary: mat-palette($uefa-primary, 500);
+$accent:  mat-palette($uefa-accent, A200, A100, A400);
+$warn:    mat-palette($mat-red, 600);
+$theme:   mat-light-theme($primary, $accent, $warn);
+
+$custom-typography: mat-typography-config(
+    $font-family: 'Klarna Regular, Segoe UI,  Candara, Bitstream Vera Sans, DejaVu Sans, Bitstream Vera Sans, Trebuchet MS, Verdana, Verdana Ref, sans-serif',
+    $headline: mat-typography-level(26px, 40px, 700),
+    $title: mat-typography-level(24px, 40px, 600),
+    $body-1: mat-typography-level(16px, 24px, 500),
+);
+
+@include theming($theme, $custom-typography);
+
+
+.material-icons {
+    font-family: 'Material Icons Round', 'Material Icons' !important;
+}
+
+//theme fixes
+.mat-form-field-underline .mat-form-field-ripple {
+    transform-origin: left;
+}
+
+.mat-button,
+.mat-raised-button,
+.mat-button-wrapper,
+.mat-raised-button-wrapper {
+  position: relative;
+}
+
+.mat-button {
+    overflow: hidden;
+}
+
+.mat-button-after,
+.mat-raised-button-after {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  opacity: 0;
+  font-size: inherit !important;
+  -webkit-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+  -webkit-transition: opacity 200ms 0ms ease, -webkit-transform 150ms 50ms ease;
+  transition: opacity 200ms 0ms ease, -webkit-transform 150ms 50ms ease;
+  transition: transform 150ms 50ms ease, opacity 200ms 0ms ease;
+  transition: transform 150ms 50ms ease, opacity 200ms 0ms ease, -webkit-transform 150ms 50ms ease;
+}
+
+.mat-button-after .mat-icon,
+.mat-raised-button-after .mat-icon {
+  width: auto;
+  height: auto;
+  font-size: 1.4em;
+  margin-left: calc(var(--padding) / 2);
+}
+
+.mat-button-before,
+.mat-raised-button-before {
+  -webkit-transition: opacity 200ms 250ms;
+  transition: opacity 200ms 250ms;
+}
+
+.mat-button.checked .mat-button-before,
+.mat-raised-button.checked .mat-button-before,
+.mat-button.checked .mat-raised-button-before,
+.mat-raised-button.checked .mat-raised-button-before {
+  opacity: 0;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.mat-button.checked .mat-button-after,
+.mat-raised-button.checked .mat-button-after,
+.mat-button.checked .mat-raised-button-after,
+.mat-raised-button.checked .mat-raised-button-after {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 150ms 200ms ease;
+  transition: all 150ms 200ms ease;
+}
+
+.mat-button::before,
+.mat-raised-button::before {
+  width: 100%;
+  height: 100%;
+  content: '';
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  background-color: #fff;
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+}
+
+.mat-button:not(:disabled):hover::before,
+.mat-raised-button:not(:disabled):hover::before {
+  opacity: 0.1;
+}
+
+//fixes
+footer, #legal-notice {
+    .mat-form-field-wrapper {
+        padding-bottom: 0;
+    }
+}
+
+#carousel-buttons {
+    .mat-icon {
+        font-size: 24px;
+        line-height: 1;
+        width: auto;
+        height: auto;
+
+        margin-bottom: 2px;
+    }
+}
+
+#games-home {
+    .mat-button-wrapper {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .mat-icon {
+        margin-left: 0.1em;
+    }
+}
+
+.mat-badge-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
