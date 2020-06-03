@@ -4,16 +4,6 @@
 
 export const environment = {
     production: false,
-    departments: [
-        'Sekretariat',
-        'IT',
-        'Einkauf',
-        'Verkauf',
-        'Marketing',
-        'Rechnungswesen',
-        'Qualitätmanagement',
-        'Geschäftsführung'
-    ],
     firebase: {
         apiKey: "AIzaSyB-VOuH58psC2Y06UvqGZRXu9uBLJn_tDI",
         authDomain: "youngb-11d5e.firebaseapp.com",
